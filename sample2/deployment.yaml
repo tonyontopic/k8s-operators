@@ -1,0 +1,16 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: sample1-operator
+spec:
+  replicas: 1
+  selector:
+    matchLabels: {opp: sample1}
+  template:
+    metadata:
+      labels:
+        opp: sample1
+    spec:
+      containers:
+      - name: op-sample1
+        image: quay.io/tony_campbell/operators:latest
